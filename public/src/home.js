@@ -68,8 +68,9 @@ function getMostPopularBooks(books) {
   });
   //.sort((a, b) => b.count - a.count)
   //.slice(0, sliced)
-  bookCount.sort(sortByCount).slice(0, sliced);
+  return bookCount.sort(sortByCount).slice(0, sliced);
 }
+
 
 function getMostPopularAuthors(books, authors) {
   const result = [];
