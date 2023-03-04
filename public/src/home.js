@@ -60,14 +60,15 @@ const sortByCount = (a, b) => {
 
 function getMostPopularBooks(books) {
   const sliced = books.length > 5 ? 5: books.length;
-  return books.map(book =>{
+  const bookCount = books.map(book =>{
     return {
       name: book.title ,
       count: book.borrows.length
     }
-  })
+  });
   //.sort((a, b) => b.count - a.count)
-  sortByCount.slice(0, sliced)
+  //.slice(0, sliced)
+  bookCount.sort(sortByCount).slice(0, sliced);
 }
 
 function getMostPopularAuthors(books, authors) {
