@@ -54,6 +54,9 @@ function getMostCommonGenres(books) {
   result.sort((a, b ) => (a.count < b.count ? 1 : -1));
   return result.slice(0,5)
 }
+const sortByCount = (a, b) => {
+  return b.count < a.count ? -1 : 1;
+}
 
 function getMostPopularBooks(books) {
   const sliced = books.length > 5 ? 5: books.length;
@@ -63,8 +66,8 @@ function getMostPopularBooks(books) {
       count: book.borrows.length
     }
   })
-  .sort((a, b) => b.count - a.count)
-  .slice(0, sliced)
+  //.sort((a, b) => b.count - a.count)
+  sortByCount.slice(0, sliced)
 }
 
 function getMostPopularAuthors(books, authors) {
